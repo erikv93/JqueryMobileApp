@@ -43,5 +43,9 @@ function printNote(name, description) {
     $('#notesList').append('<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#">' + name + " " + description + '</a></li>');
 
     //    document.getElementById("contentNotes").appendChild('<li><a href="#"><h3>' + name + "</h3> " + description + '</a></li>');
-    console.log("print note called called");
+    console.log("print note called");
 }
+
+$('#notesList').on('click', '#li', function() {
+    console.log("test");
+});
