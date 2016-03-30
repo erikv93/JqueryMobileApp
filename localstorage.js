@@ -1,22 +1,25 @@
 function onAddClicked() {
     addNote($('#nameEntry').val(), $('#descriptionEntry').val());
     console.log("On add clicked called");
+    location.reload();
 }
 
 function onEditClicked() {
     editNote($('#nameEntryView').val(), $('#descriptionEntryView').val());
     console.log("On edit clicked called");
+    location.reload();
+}
+
+
+function onRemoveClicked() {
+    removeNote(sessionStorage.getItem("noteClicked"));
+    $.mobile.navigate('#home');
+    location.reload();
 }
 
 function editNote(name, description) {
-    localStorage.removeItem(name);
-    localStorage.setItem(name, description)
-}
-
-function onRemoveClicked() {
-    localStorage.removeItem(sessionStorage.getItem("noteClicked"));
-    $('notesList').listView('refresh');
-    window.history.back();
+    removeNote(name);
+    addNote(name, description);
 }
 
 function addNote(name, description) {
@@ -25,8 +28,7 @@ function addNote(name, description) {
 }
 
 function removeNote(name) {
-    localStorage.removeItem(name);
-    $.mobile.navigate("#home");
+    localStorage.removeItem(sessionStorage.getItem("noteClicked"));
 }
 
 function getNote(name) {
@@ -34,6 +36,7 @@ function getNote(name) {
 }
 
 function updateNote(name, description) {
+    removeNote(name);
     localStorage.setItem(name, description);
 }
 
@@ -62,4 +65,6 @@ function viewNote(name) {
     console.log("Note viewed: " + name);
     sessionStorage.setItem("noteClicked", name);
     $.mobile.navigate("#view");
+    $('#nameEntryView').val(name);
+    $('#descriptionEntryView').val(getNote(name));
 }
