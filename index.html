@@ -25,8 +25,7 @@
         <!-- /header -->
 
         <div id="contentNotes" data-role="content">
-            <ul data-role="listview" id="notesList">
-            </ul>
+            <ul data-role="listview" id="notesList"></ul>
         </div>
         <!-- /content -->
 
@@ -63,15 +62,21 @@
     </div>
     <!-- /page -->
 
-    <div data-role="page" id="edit" data-add-back-btn="true" data-back-btn-text="Back">
+    <div data-role="page" id="view" data-add-back-btn="true" data-back-btn-text="Back">
 
         <div data-role="header">
-            <h1>Edit note</h1>
+            <h1>Edit/View note</h1>
+            <a href="#home" data-icon="back" class="ui-btn-left">Back</a>
         </div>
         <!-- /header -->
 
         <div data-role="content">
-
+            <label for="nameEntryView">Naam:</label>
+            <input type="text" name="name" id="nameEntryView" value="" />
+            <label for="descriptionEntryView">Beschrijving:</label>
+            <input type="text" name="name" id="descriptionEntryView" value="" />
+            <button class="button" onclick="onAddClicked()">Edit</button>
+            <button class="button" onclick="onRemoveClicked()">Remove</button>
         </div>
         <!-- /content -->
 
