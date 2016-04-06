@@ -23,6 +23,7 @@ function onRemoveClicked() {
 function editNote(name, description) {
     removeNote(name);
     addNote(name, description);
+    location.reload();
 }
 
 //adds a note to localstorage
