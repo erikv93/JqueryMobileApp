@@ -35,11 +35,6 @@ function getNote(name) {
     return localStorage.getItem(name);
 }
 
-function updateNote(name, description) {
-    removeNote(name);
-    localStorage.setItem(name, description);
-}
-
 function getAllNotes() {
 
     console.log("Get all notes called");
